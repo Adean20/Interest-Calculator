@@ -10,7 +10,7 @@ function compute()
     let endYear = new Date().getFullYear() + parseInt(years);
 
     //compound interest formula
-    let compounded = principal * (1 + rate/12) ** (12 * years)
+    let compounded = principal * ((1 + ((rate/100)/12)) ** (12*years))
 		
     //validate the principal. If negative or 0 alert user and focus on principal
     if(principal <= 0){
@@ -21,8 +21,8 @@ function compute()
     
     //display result
     document.getElementById("result").innerHTML = `If you deposit <mark>${principal}</mark>,<br>at an interest rate of 
-    <mark>${rate}</mark>.<br>You will receive an amount of <mark>${interest}</mark>,<br>in the year <mark>${endYear}</mark><br>
-    <br>If you were to have monthly compounded interest at the end your balance instead would be <mark>${compounded}</mark>`;
+    <mark>${rate}</mark>.<br>You will receive an amount of <mark>${interest.toFixed(2)}</mark>,<br>in the year <mark>${endYear}</mark><br>
+    <br>With monthly compounded interest your balance would instead be <mark>${compounded.toFixed(2)}</mark>`;
 }
 
 //display rate % by slider
